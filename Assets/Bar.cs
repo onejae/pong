@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour {
 	public Ball ball;
+	public Ball myShadowBall;
+	public Ball otherShadowBall;
 	public bool auto = false;
 	public float maxSpeed;
 	private static float moveArea = 2.72f;
@@ -22,7 +24,21 @@ public class Bar : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (auto) {
-			float distance = ball.transform.localPosition.x - transform.localPosition.x;
+			Ball follower;
+
+			if (transform.localPosition.y > 0f) {
+				if (ball.ForceTo.y < 0)
+					follower = ball;
+				else
+					follower = myShadowBall;
+			} else {
+				if (ball.ForceTo.y > 0)
+					follower = ball;
+				else
+					follower = myShadowBall;
+			}
+			
+			float distance = follower.transform.localPosition.x - transform.localPosition.x;
 			float moveDistance = distance * Time.fixedDeltaTime * maxSpeed;
 
 			Vector2 moveTo = new Vector2 (moveDistance, 0);
@@ -45,15 +61,19 @@ public class Bar : MonoBehaviour {
 			float barDirection = gap > 0f ? 1f : -1f;
 
 			if (ballDirection == barDirection) {
-				ball.speed = ball.speed + Mathf.Abs(gap) * 0.05f;
+				ball.Speed = ball.Speed + Mathf.Abs(gap) * 0.07f;
 			} else {
-				ball.speed = ball.speed - Mathf.Abs(gap) * 0.05f;
+				ball.Speed = ball.Speed - Mathf.Abs(gap) * 0.04f;
 			}
-
-			if (ball.speed < ball.minSpeed)
-				ball.speed = ball.minSpeed;
-			
+				
 			ball.ForceTo = new Vector2 (gap * 1.8f, ball.ForceTo.y * -1.0f).normalized;
+
+//			if (auto == false) {
+//			otherShadowBall.Speed = ball.Speed;
+				otherShadowBall.ForceTo = ball.ForceTo;
+				otherShadowBall.transform.localPosition = ball.transform.localPosition;
+				otherShadowBall.Moving = true;
+//			}
 			hitCount++;
 		}
 	}
