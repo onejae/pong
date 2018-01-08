@@ -162,7 +162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4915952705314410, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4915952705314410, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_LocalRotation.x
@@ -196,7 +196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: Touch the screen to start a game
+      value: Guide
       objectReference: {fileID: 0}
     - target: {fileID: 23420551826632114, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a09f4b895704056b3a50f6bfc32675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.8
+  minSpeed: 0.4
   ping: {fileID: 1799860809}
   pong: {fileID: 1174285354}
   bound: {fileID: 740724775}
@@ -381,7 +381,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -416,7 +416,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -829,7 +829,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561116341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1314,8 +1314,9 @@ MonoBehaviour:
   myShadowBall: {fileID: 964578268}
   otherShadowBall: {fileID: 62480882}
   auto: 0
-  maxSpeed: 15
+  maxSpeed: 5
   hitCount: 0
+  Level: 2
 --- !u!50 &779930817
 Rigidbody2D:
   serializedVersion: 4
@@ -1644,7 +1645,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.08, y: 0.08}
+  m_Size: {x: 0.08, y: 0.04}
   m_EdgeRadius: 0
 --- !u!1 &919337290 stripped
 GameObject:
@@ -1668,7 +1669,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1782,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a09f4b895704056b3a50f6bfc32675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.8
+  minSpeed: 0.4
   ping: {fileID: 1799860809}
   pong: {fileID: 1174285354}
   bound: {fileID: 740724775}
@@ -2023,7 +2024,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2034,7 +2035,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1105396169 stripped
 GameObject:
@@ -2357,8 +2358,9 @@ MonoBehaviour:
   myShadowBall: {fileID: 62480882}
   otherShadowBall: {fileID: 964578268}
   auto: 1
-  maxSpeed: 15
+  maxSpeed: 5
   hitCount: 0
+  Level: 2
 --- !u!1 &1256543200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,7 +2509,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 5ec3ad1d542a54b73ba5950d790ec29d, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2541,7 +2543,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!1 &1310646969
 GameObject:
@@ -2740,7 +2742,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2828,7 +2830,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409645243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3388,7 +3390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidUnitID: ca-app-pub-4826907933804673/1883830499
   androidAppID: ca-app-pub-4826907933804673~1950869983
-  iosUnit: 
+  iosUnitID: 
   iosAppID: 
 --- !u!1 &1877872429 stripped
 GameObject:
@@ -3412,7 +3414,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.18}
+  m_Offset: {x: 0.15, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4210,7 +4212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123749450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.10000014, z: 0}
+  m_LocalPosition: {x: 0, y: -0.10000014, z: -0.01}
   m_LocalScale: {x: 67.83, y: 15.51, z: 1}
   m_Children: []
   m_Father: {fileID: 1105396170}

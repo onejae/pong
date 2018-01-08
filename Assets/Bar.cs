@@ -10,6 +10,7 @@ public class Bar : MonoBehaviour {
 	public float maxSpeed;
 	private static float moveArea = 2.72f;
 	public int hitCount = 0;
+	public int Level = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -70,6 +71,16 @@ public class Bar : MonoBehaviour {
 
 //			if (auto == false) {
 //			otherShadowBall.Speed = ball.Speed;
+			float factor = 1;
+
+			if (Level == 1)
+				factor = 1.05f;
+			else if (Level == 2)
+				factor = 1.2f;
+			else
+				factor = 1.6f;
+			
+			otherShadowBall.Speed = ball.Speed * factor;
 				otherShadowBall.ForceTo = ball.ForceTo;
 				otherShadowBall.transform.localPosition = ball.transform.localPosition;
 				otherShadowBall.Moving = true;

@@ -6,7 +6,7 @@ using GoogleMobileAds.Api;
 public class AdsController : MonoBehaviour {
 	public string androidUnitID;
 	public string androidAppID;
-	public string iosUnit;
+	public string iosUnitID;
 	public string iosAppID;
 
 	InterstitialAd interstitial;

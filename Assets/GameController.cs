@@ -44,6 +44,32 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		Init ();
 	}
+
+	private void SetLevel(int level)
+	{
+		if (Level == 1) {
+			LevelText.text = "EASY";
+			player.maxSpeed = 7.0f;
+			computer.maxSpeed = 7.0f;
+			player.myShadowBall.minSpeed = 0.12f;
+			computer.myShadowBall.minSpeed = 0.12f;
+		} else if (Level == 2) {
+			LevelText.text = "NORMAL";
+			player.maxSpeed = 7.0f;
+			computer.maxSpeed = 7.0f;
+			player.myShadowBall.minSpeed = 0.2f;
+			computer.myShadowBall.minSpeed = 0.2f;
+		} else {
+			LevelText.text = "HARD";
+			player.maxSpeed = 7.0f;
+			computer.maxSpeed = 7.0f;
+			player.myShadowBall.minSpeed = 0.5f;
+			computer.myShadowBall.minSpeed = 0.5f;
+		}
+
+		computer.Level = level;
+		player.Level = level;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -80,7 +106,6 @@ public class GameController : MonoBehaviour {
 					//We should have hit something with a 2D Physics collider!
 					GameObject touchedObject = hitInformation.transform.gameObject;
 					//touchedObject should be the object someone touched.
-					Debug.Log ("Touched " + touchedObject.transform.name);
 
 					string name = touchedObject.transform.name;
 
@@ -108,13 +133,7 @@ public class GameController : MonoBehaviour {
 						else
 							Level = 1;
 
-						if (Level == 1)
-							LevelText.text = "EASY";
-						else if (Level == 2)
-							LevelText.text = "NORMAL";
-						else
-							LevelText.text = "HARD";
-
+						SetLevel (Level);
 						touch2Audio.Play ();
 					} else if (name == "levelDown") {
 						if (Level != 1)
@@ -122,22 +141,19 @@ public class GameController : MonoBehaviour {
 						else
 							Level = 3;
 						
-						if (Level == 1)
-							LevelText.text = "EASY";
-						else if (Level == 2)
-							LevelText.text = "NORMAL";
-						else
-							LevelText.text = "HARD";	
-
+						SetLevel (Level);
 						touch2Audio.Play ();
 					} else if (name == "autoUp" || name == "autoDown") {
 						Auto = !Auto;
 						AutoText.text = Auto ? "AUTO" : "NORMAL";
 						player.auto = Auto;
 						touch2Audio.Play ();
+					} else {
+						if (gameState == GameState.init && touchPosWorld2D.y >= -1.4f)
+							StartGame ();
+						else if (gameState == GameState.ready)
+							StartGame ();
 					}
-					else
-						StartGame ();
 				}
 			}
 		}
@@ -173,6 +189,7 @@ public class GameController : MonoBehaviour {
 	private void Init()
 	{
 		SignText.text = "Pong";
+		SetLevel (2);
 
 		ComputerScore.transform.gameObject.SetActive (false);
 		PlayerScore.transform.gameObject.SetActive (false);

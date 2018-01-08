@@ -25,6 +25,8 @@ public class Ball : MonoBehaviour {
 	public bool IsShadow;
 	public bool Moving { get; set; }
 	public float shadowBaseY;
+	public Bar player;
+	public Bar computer;
 
 	// Use this for initialization
 	void Start () {
@@ -51,13 +53,30 @@ public class Ball : MonoBehaviour {
 			origin.x = origin.x < 0.0f ? -limitX : limitX;
 		}
 
-		if (IsShadow) {
-			v3 = new Vector3 (ForceTo.x, ForceTo.y, 0.0f);
+//		if (origin.y < -4.3f || origin.y > 5.42f) {
+//			if (IsShadow) {
+//				move = move * ((Mathf.Abs (shadowBaseY) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+//				addRandomMove = true;
+//			}
+//		}
 
-//			if (Mathf.Abs (origin.y) > Mathf.Abs(shadowBaseY)) {
-			if ((shadowBaseY < 0f && origin.y < shadowBaseY) || (shadowBaseY > 0f && origin.y > shadowBaseY)) {
-				move = move * ((Mathf.Abs(shadowBaseY) - Mathf.Abs(transform.localPosition.y)) / Mathf.Abs((origin.y - transform.localPosition.y)));
+		if (origin.y < -4.3f) {
+			if (IsShadow) {
+				move = move * ((Mathf.Abs (-4.3f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
 				addRandomMove = true;
+			} else {
+				Debug.Log ("okay");
+//				move = move * ((Mathf.Abs (-4.3f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+
+			}
+		} else if (origin.y > 5.42f) {
+			if (IsShadow) {
+				move = move * ((Mathf.Abs (5.42f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+				addRandomMove = true;
+			} else {
+//				move = move * ((Mathf.Abs (5.42f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+
+				Debug.Log ("okay2");
 			}
 		}
 			
@@ -68,7 +87,9 @@ public class Ball : MonoBehaviour {
 			Moving = false;
 		}
 
-		transform.localPosition = aimTo;
+//		transform.localPosition = aimTo;
+
+		GetComponent<Rigidbody2D> ().MovePosition (new Vector2(aimTo.x, aimTo.y));
 
 		if (Mathf.Abs (aimTo.x) >= limitX) {
 			// bounce on the wall
