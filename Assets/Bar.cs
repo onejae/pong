@@ -54,7 +54,7 @@ public class Bar : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.transform.name == "Ball") {
 			float gap = other.transform.localPosition.x - transform.localPosition.x;
@@ -66,11 +66,11 @@ public class Bar : MonoBehaviour {
 			} else {
 				ball.Speed = ball.Speed - Mathf.Abs(gap) * 0.04f;
 			}
-				
+
 			ball.ForceTo = new Vector2 (gap * 1.8f, ball.ForceTo.y * -1.0f).normalized;
 
-//			if (auto == false) {
-//			otherShadowBall.Speed = ball.Speed;
+			//			if (auto == false) {
+			//			otherShadowBall.Speed = ball.Speed;
 			float factor = 1;
 
 			if (Level == 1)
@@ -79,13 +79,45 @@ public class Bar : MonoBehaviour {
 				factor = 1.2f;
 			else
 				factor = 1.6f;
-			
+
 			otherShadowBall.Speed = ball.Speed * factor;
-				otherShadowBall.ForceTo = ball.ForceTo;
-				otherShadowBall.transform.localPosition = ball.transform.localPosition;
-				otherShadowBall.Moving = true;
-//			}
+			otherShadowBall.ForceTo = ball.ForceTo;
+			otherShadowBall.transform.localPosition = ball.transform.localPosition;
+			otherShadowBall.Moving = true;
+			//			}
 			hitCount++;
 		}
 	}
+
+//	void OnTriggerEnter2D(Collider2D other)
+//	{
+//		if (other.transform.name == "Ball") {
+//			float gap = other.transform.localPosition.x - transform.localPosition.x;
+//			float ballDirection = ball.ForceTo.x > 0f ? 1f : -1f;
+//			float barDirection = gap > 0f ? 1f : -1f;
+//
+//			if (ballDirection == barDirection) {
+//				ball.Speed = ball.Speed + Mathf.Abs(gap) * 0.07f;
+//			} else {
+//				ball.Speed = ball.Speed - Mathf.Abs(gap) * 0.04f;
+//			}
+//				
+//			ball.ForceTo = new Vector2 (gap * 1.8f, ball.ForceTo.y * -1.0f).normalized;
+//
+//			float factor = 1;
+//
+//			if (Level == 1)
+//				factor = 1.05f;
+//			else if (Level == 2)
+//				factor = 1.2f;
+//			else
+//				factor = 1.6f;
+//			
+//			otherShadowBall.Speed = ball.Speed * factor;
+//				otherShadowBall.ForceTo = ball.ForceTo;
+//				otherShadowBall.transform.localPosition = ball.transform.localPosition;
+//				otherShadowBall.Moving = true;
+//			hitCount++;
+//		}
+//	}
 }
