@@ -190,6 +190,7 @@ public class GameController : MonoBehaviour {
 	{
 		SignText.text = "Pong";
 		SetLevel (2);
+		SetBall ();
 
 		ComputerScore.transform.gameObject.SetActive (false);
 		PlayerScore.transform.gameObject.SetActive (false);

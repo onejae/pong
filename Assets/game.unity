@@ -285,6 +285,8 @@ MonoBehaviour:
   bound: {fileID: 740724775}
   IsShadow: 1
   shadowBaseY: 0
+  player: {fileID: 0}
+  computer: {fileID: 0}
 --- !u!61 &62480883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -768,7 +770,6 @@ GameObject:
   m_Component:
   - component: {fileID: 561116345}
   - component: {fileID: 561116344}
-  - component: {fileID: 561116343}
   - component: {fileID: 561116342}
   - component: {fileID: 561116346}
   m_Layer: 0
@@ -803,26 +804,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!50 &561116343
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 561116341}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1000000
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &561116344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1789,6 +1770,8 @@ MonoBehaviour:
   bound: {fileID: 740724775}
   IsShadow: 1
   shadowBaseY: 0
+  player: {fileID: 0}
+  computer: {fileID: 0}
 --- !u!50 &964578269
 Rigidbody2D:
   serializedVersion: 4
@@ -1840,7 +1823,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 964578267}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1885,7 +1868,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 964578267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -4.3, z: 0}
+  m_LocalPosition: {x: 0, y: -4.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 2096631685}
@@ -2443,6 +2426,8 @@ MonoBehaviour:
   bound: {fileID: 740724775}
   IsShadow: 0
   shadowBaseY: 0
+  player: {fileID: 779930816}
+  computer: {fileID: 1179014441}
 --- !u!212 &1260124522
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2769,7 +2754,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1409645247}
   - component: {fileID: 1409645246}
-  - component: {fileID: 1409645245}
   - component: {fileID: 1409645244}
   - component: {fileID: 1409645248}
   m_Layer: 0
@@ -2804,26 +2788,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!50 &1409645245
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409645243}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1000000
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &1409645246
 SpriteRenderer:
   m_ObjectHideFlags: 0

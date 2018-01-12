@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour {
 		}
 	}
 	public float minSpeed = 0.1f;
-	private Vector2 forceTo;
+	private Vector2 forceTo = Vector2.zero;
 	public Vector2 ForceTo { get; set; }
 	public AudioSource ping;
 	public AudioSource pong;
@@ -60,23 +60,25 @@ public class Ball : MonoBehaviour {
 //			}
 //		}
 
-		if (origin.y < -4.3f) {
+		if (origin.y <= -4.3f) {
 			if (IsShadow) {
 				move = move * ((Mathf.Abs (-4.3f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
 				addRandomMove = true;
 			} else {
-				Debug.Log ("okay");
-//				move = move * ((Mathf.Abs (-4.3f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+				Vector3 barPosition = player.transform.localPosition;
 
+				if (Mathf.Abs(barPosition.x - origin.x) < 0.6f)
+					move = move * ((Mathf.Abs (-4.3f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
 			}
-		} else if (origin.y > 5.42f) {
+		} else if (origin.y >= 5.42f) {
 			if (IsShadow) {
 				move = move * ((Mathf.Abs (5.42f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
 				addRandomMove = true;
 			} else {
-//				move = move * ((Mathf.Abs (5.42f) - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
+				Vector3 barPosition = computer.transform.localPosition;
 
-				Debug.Log ("okay2");
+				if (Mathf.Abs(barPosition.x - origin.x) < 0.6f)
+					move = move * ((5.42f - Mathf.Abs (transform.localPosition.y)) / Mathf.Abs ((origin.y - transform.localPosition.y)));
 			}
 		}
 			
